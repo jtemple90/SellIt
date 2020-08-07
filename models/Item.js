@@ -1,15 +1,15 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// // const commentSchema = new mongoose.Schema({
-// //     comment: {
-// //         type: "String"
-// //     },
-// //     offer: {
-// //         type: Number,
-// //         required:true
-// //     }
-// // });
+const messageSchema = new mongoose.Schema({
+    message: {
+        type: "String"
+    },
+    offer: {
+        type: Number,
+        required:true
+    }
+ });
 
 const itemSchema = new Schema({
    title: {
@@ -26,10 +26,10 @@ const itemSchema = new Schema({
     min: 1,
     required:true
     },
-     image:{
-        type: String, 
-        default: "No Photo"
-    },
+    //  image:{
+    //     type: String, 
+    //     default: "No Photo"
+    // },
     //tie items to a specific user
     user: {
         type: mongoose.Schema.Types.ObjectId,
@@ -39,7 +39,7 @@ const itemSchema = new Schema({
         type: Date,
         default: Date.now
     },
-//    comments: [commentSchema],
+   message: [messageSchema],
 });
 
 module.exports = mongoose.model('Item', itemSchema);

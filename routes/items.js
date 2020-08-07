@@ -11,35 +11,39 @@ router.get('/add', ensureAuth, function(req, res) {
 });
 
 // process add form
-router.post('/', ensureAuth, function(req, res) {
-    const item = new Item(req.body);
-    item.save(function(err) {
-        if (err) return res.redirect('/items/add');
-        console.log(item);
-        res.redirect('/dashboard');
+ router.post('/', ensureAuth, async (req, res) => {
+     try {
+        req.body.user = req.user.id;
+         await Item.create(req.body);
+        //  res.render(Item);
+         res.redirect('/dashboard');
+     } catch (err) {
+         console.log(err);
+     }
     });
-});
 
-// => {
-//     try {
-//         req.body.user = req.user.id;
-//         await Item.create(req.body);
-//         res.redirect('/dashboard');
-//     } catch (err) {
-//         console.log(err);
-//         res.render('error');
-//     }});
-
-
+//    const item = new Item(req.body);
+//    item.save(function(err) {
+//        if (err) return res.render('/items/add');
+//        console.log(item);
+//        res.redirect('/dashboard');
+//    });
+// });
+// function addItem(req, res) {
+// const item = new Item(req.body);
+// }
 
 router.get('/', ensureAuth, function(req, res){
-const items = Item.find(req.body)
-.populate('user')
-.sort({ createdAt: 'desc'})
-.lean();
-res.render('items/index', {
-    items
-});
+    try {
+        const items = Item.find(req.body)
+        .populate('user')
+        .sort({ createdAt: 'desc'})
+        .lean();
+        res.render('items/index');
+    } catch (err) {
+        console.log(err);
+        res.render("error is ", error);
+    }
 });
 
 
@@ -49,10 +53,18 @@ router.get('/edit/:id', ensureAuth, function(req, res) {
     if (item.user != req.user.id) {
         res.redirect('/items');
     } else { 
-        res.render('items/edit', {
-            item,
-        });
-    }
+    Item.findOneAndUpdate({_id: req.params.id}, req.body, {
+        new: true,
+        runValidators: true,
+    });
+    res.redirect('/dashboard');
+        }
+    });
+
+//Delete item
+router.delete('/:id', ensureAuth, function(req, res) {
+    Item.remove({ _id: req.params.id});
+    res.redirect('/dashboard');
 });
 
 module.exports = router;

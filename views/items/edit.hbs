@@ -1,7 +1,8 @@
-{{>_header}}
+
 <h3>Edit Item</h3> 
 <div class="row">
-    <form action="/items" method="POST" class="col s12">
+    <form action="/items{{item._id}}" method="POST" class="col s12">
+    <input type="hidden" name="_method" value="PUT">
         <div class="row">
             <div class="input-field">
                 <input type="text" id="title" name="title" value="{{item.title}}">
@@ -17,7 +18,7 @@
         </div>
         <div class="row">
             <div class="input-field">
-                <input type="number" id="price" name="price">
+                <input type="number" id="price" name="price" value="{{item.price}}">
                 <label>Price</label>
             </div>
         </div>

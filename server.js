@@ -5,6 +5,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
 const exphbs = require('express-handlebars');
+const methodOverride = require('method-override');
 const session = require('express-session');
 const passport = require('passport');
 const bodyParser = require('body-parser');
@@ -19,7 +20,7 @@ require('./config/passport')(passport);
 
 // Create the express app
 const app = express();
-
+app.use(express.urlencoded({ extended: true }));
 
 //  Routes
 
@@ -36,7 +37,14 @@ app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(bodyParser.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(methodOverride(function (req, res) {
+  if (req.body && typeof req.body === 'object' && '_method' in req.body) {
+    let method = req.body._method;
+    delete req.body._method;
+    return method;
+  }
+})
+);
 //session middleware
 app.use(session({
     secret:'LetsGetIt',
