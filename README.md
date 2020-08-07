@@ -29,3 +29,20 @@ How to Use?
 5. Edit or Delete Your Listings
 
 Wireframe:
+
+HomePage
+
+![Screen Shot 2020-07-31 at 3 26 40 PM](https://user-images.githubusercontent.com/66657472/89082644-6e003b80-d343-11ea-9574-3de6be5813eb.png)
+
+Create Account
+
+![Screen Shot 2020-07-31 at 3 26 53 PM](https://user-images.githubusercontent.com/66657472/89082703-a3a52480-d343-11ea-8625-0db847af3c07.png)
+
+Create Listing
+
+![Screen Shot 2020-07-31 at 3 27 10 PM](https://user-images.githubusercontent.com/66657472/89082640-6a6cb480-d343-11ea-96b5-b3b4ccd98ed4.png)
+
+Search Active Listings
+
+![Screen Shot 2020-07-31 at 3 33 50 PM](https://user-images.githubusercontent.com/66657472/89082637-68a2f100-d343-11ea-86a4-c6aeff526a29.png)
+
