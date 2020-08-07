@@ -1,0 +1,27 @@
+
+ <!DOCTYPE html>
+<html>
+<head>
+  <title> The Just SellIt! App</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Baloo&display=swap" rel="stylesheet">
+  <!-- Materialize CSS Framework -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="/stylesheet/style.css" />
+  <!-- JavaScript for font awesome -->
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+</head>
+
+ <body>
+    {{>_header}}
+  {{>_addbtn}}
+  <div class="container">
+{{{body}}}
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+M.Sidenav.init(document.querySelector('.sidenav'));
+</script>
+</body>
+</html>

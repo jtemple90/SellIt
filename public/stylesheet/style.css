@@ -1,0 +1,19 @@
+/* font-family: 'IM Fell Great Primer', serif; */
+* {
+
+}
+body {
+    background-color: #C5E2EC;
+    text-align: left;
+}
+p {
+    margin: 10px 0 !important;
+}
+.container {
+   
+    width: 400px;
+    height: 300px;
+    margin-top:0px;
+    text-align: center;
+}
+

@@ -1,0 +1,23 @@
+<h1>Whats For Sale</h1>
+<div class="row">
+    {{#each items}}
+    <div class="col s12 m4">
+        <div class="card">
+            <div class="card-image">
+                card-image
+            </div>
+            <div class="card-content">
+                <h5>{{title}}</h5>
+                <p>{{description}}</p>
+                <br>
+                <div class="chip">
+                    <img src="{{user.image}}" alt="">
+                    <a href="/items/user/{{user._id}}">{{user.displayName}}</a>
+                </div>
+            </div>
+            <div class='card-action center-align'></div>
+            <a href="/items{{_id}}" class="btn grey">All Items</a>
+
+        </div>
+    </div> 
+</div>

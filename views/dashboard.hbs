@@ -1,0 +1,30 @@
+<h3><img src="https://i.imgur.com/o74pgZm.png" height="150px" alt="SellIt!"></h3>
+<h5>Dashboard</h5>
+<h3>Hey {{name}}</h3>
+<p>Here's Your Items!</p>
+{{#if items}}
+  <table class="striped">
+      <thead>
+          <tr>
+              <th>Title</th>
+              {{!-- <th>Photo</th> --}}
+              <th>Description</th>
+              <th>Price</th>
+          </tr>
+      </thead>
+  <tbody>
+      {{#each items}}
+      <tr>
+          <td><a href="/items/{{_id}}"></a>{{title}}</td>
+          {{!-- <td>{{photo}}</td> --}}
+          <td>{{description}}</td>
+          <td>{{price}}</td>
+          <td>{{createAt}}</td>
+      </tr>
+      {{/each}}
+  </tbody>
+  </table>
+  {{else}}
+  <p>No Items Listed</p>
+  {{/if}}  
+ 
